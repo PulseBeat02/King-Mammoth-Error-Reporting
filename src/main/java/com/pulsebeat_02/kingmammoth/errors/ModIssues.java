@@ -23,9 +23,11 @@ import net.minecraftforge.gradle.GradleStartCommon;
 
 // Global Variables
 
-
-
 public class ModIssues {
+	
+		String path = "../resources/wav/Windows Error.wav";
+
+		File Error = new File (path);
 	
 		{
 	
@@ -33,7 +35,7 @@ public class ModIssues {
 				
 				String launch [] = {"launch"};
 		
-				GradleStartCommon.main("launch");
+				// GradleStartCommon.main("launch");
 				
 				PlaySound();
 				
@@ -46,6 +48,8 @@ public class ModIssues {
 			
 					DuplicateMods.main(dummy);
 					
+					PlaySound();
+					
 				}
 		
 			catch (MultipleModsErrored VariableDeclaratorId) {
@@ -53,6 +57,8 @@ public class ModIssues {
 					String dummy [] = {"dummy"};
 			
 					MultipleMods.main(dummy);
+					
+					PlaySound();
 			
 				}
 		
@@ -61,6 +67,8 @@ public class ModIssues {
 					String dummy [] = {"dummy"};
 			
 					CrashErrorMain.main(dummy);
+					
+					PlaySound();
 			
 				}
 			
@@ -69,19 +77,21 @@ public class ModIssues {
 					String dummy [] = {"dummy"};
 				
 					CrashErrorMain.main(dummy); // Catches any other errors
+					
+					PlaySound();
 				
 				}
 
 			}
 
-		static void PlaySound() {
+		void PlaySound() {
 			
 			{
 				
 				try {
 					
 						Clip clip = AudioSystem.getClip();
-						clip.open(AudioSystem.getAudioInputStream(Sound));
+						clip.open(AudioSystem.getAudioInputStream(Error));
 						clip.start();
 						
 						Thread.sleep(clip.getMicrosecondLength()/1000);
