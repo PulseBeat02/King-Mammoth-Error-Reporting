@@ -1,7 +1,9 @@
 package com.pulsebeat_02.kingmammoth.errors;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -83,6 +85,20 @@ public class ModIssues {
 				}
 
 			}
+		
+			{
+		
+			if (func_71404_a) { // Crashed
+				
+				String dummy [] = {"dummy"};
+				
+				CrashErrorMain.main(dummy); // Catches any other errors
+				
+				PlaySound();
+			
+				}
+			
+			}
 
 		void PlaySound() {
 			
@@ -96,7 +112,11 @@ public class ModIssues {
 						
 						Thread.sleep(clip.getMicrosecondLength()/1000);
 						
-				} catch (Exception e) {	}
+				} catch (Exception e) {	
+					
+					
+					
+				}
 				
 			}
 								

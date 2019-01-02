@@ -10,7 +10,9 @@ import javax.swing.SwingConstants;
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
 
 import java.awt.Toolkit;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class CrashErrorMain extends ModIssues{
 
@@ -36,6 +38,7 @@ public class CrashErrorMain extends ModIssues{
 	 * Create the application.
 	 * @throws IOException 
 	 */
+	
 	public CrashErrorMain() throws IOException {
 		initialize();
 	}
@@ -44,7 +47,9 @@ public class CrashErrorMain extends ModIssues{
 	 * Initialize the contents of the frame.
 	 * @throws IOException 
 	 */
+	
 	private void initialize() throws IOException {
+		
 		frmError = new JFrame();
 		frmError.setIconImage(Toolkit.getDefaultToolkit().getImage(CrashErrorMain.class.getResource("/com/pulsebeat_02/kingmammoth/resources/images/error.png")));
 		frmError.setTitle("Error");
@@ -113,13 +118,34 @@ public class CrashErrorMain extends ModIssues{
 		frmError.getContentPane().add(btnIgnore);
 		
 		if (btnNewButton.getModel().isPressed()) {
+			
+			{
+				
+				try {
+			
 			 
-			 String path = "../../../resources/batch_files/close_process.bat";
+			 String path = "../../resources/batch_files/close_process.bat";
 			 Runtime rn = Runtime.getRuntime();
 			 Process pr = rn.exec(path);
+			 
+				} catch (Exception e) {
+					
+					 ProcessBuilder pb = new ProcessBuilder("../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
+					 Process p = pb.start();
+					 BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+					 String line = null;
+					 while ((line = reader.readLine()) != null) {
+						 
+					    System.out.println(line);
+					    
+					 	}
+					
+					}
+						
+				}
 		        
-		 }
+		 	}
 		
-	}
+		}
 
-}
+	}
