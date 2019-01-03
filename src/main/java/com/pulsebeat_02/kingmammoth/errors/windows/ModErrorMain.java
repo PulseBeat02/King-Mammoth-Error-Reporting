@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+
 import javax.swing.SwingConstants;
 
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
@@ -25,16 +27,27 @@ public class ModErrorMain extends ModIssues {
 	 */
 	
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
+			
 			public void run() {
+				
 				try {
+					
 					ModErrorMain window = new ModErrorMain();
+					
 					window.frmError.setVisible(true);
+					
 				} catch (Exception e) {
+					
 					e.printStackTrace();
+					
 				}
+				
 			}
+			
 		});
+		
 	}
 
 	/**
@@ -122,33 +135,31 @@ public class ModErrorMain extends ModIssues {
 		
 		if (btnNewButton.getModel().isPressed()) {
 			
-			{
-				
-				try {
-			
+			 if (Desktop.isDesktopSupported()) {
+				 
+				 String path = "../../../resources/batch_files/close_process.bat";
+				 Runtime rn = Runtime.getRuntime();
+				 Process pr = rn.exec(path);
 			 
-			 String path = "../../resources/batch_files/close_process.bat";
-			 Runtime rn = Runtime.getRuntime();
-			 Process pr = rn.exec(path);
+			 }
 			 
-				} catch (Exception e) {
+			 else {
 					
-					 ProcessBuilder pb = new ProcessBuilder("../../resources/sh_files/close_process.sh", "myArg1", "myArg2"); // Make sure this is correct
-					 Process p = pb.start();
-					 BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-					 String line = null;
-					 while ((line = reader.readLine()) != null) {
+				 	ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
+				 	Process p = pb.start();
+				 	BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				 	String line = null;
+				 	
+				 	while ((line = reader.readLine()) != null) {
 						 
 					    System.out.println(line);
 					    
 					 	}
 					
 					}
-						
-				}
 		        
-			}
+				}
 		
-		}
+			}
 	
-	}
+		}

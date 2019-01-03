@@ -1,5 +1,6 @@
 package com.pulsebeat_02.kingmammoth.errors.windows.mod_errors;
 
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -24,16 +25,27 @@ public class MissingMods extends ModIssues {
 	 */
 	
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
+			
 			public void run() {
+				
 				try {
+					
 					MissingMods window = new MissingMods();
+					
 					window.frmError.setVisible(true);
+					
 				} catch (Exception e) {
+					
 					e.printStackTrace();
+					
 				}
+				
 			}
+			
 		});
+		
 	}
 
 	/**
@@ -108,32 +120,30 @@ public class MissingMods extends ModIssues {
 		
 		if (btnNewButton.getModel().isPressed()) {
 			
-			{
-				
-				try {
-			
+			 if (Desktop.isDesktopSupported()) {
+				 
+				 String path = "../../../resources/batch_files/close_process.bat";
+				 Runtime rn = Runtime.getRuntime();
+				 Process pr = rn.exec(path);
 			 
-			 String path = "../../../resources/batch_files/close_process.bat";
-			 Runtime rn = Runtime.getRuntime();
-			 Process pr = rn.exec(path);
+			 }
 			 
-				} catch (Exception e) {
+			 else {
 					
-					 ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
-					 Process p = pb.start();
-					 BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-					 String line = null;
-					 while ((line = reader.readLine()) != null) {
+				 	ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
+				 	Process p = pb.start();
+				 	BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				 	String line = null;
+				 	
+				 	while ((line = reader.readLine()) != null) {
 						 
 					    System.out.println(line);
 					    
 					 	}
 					
 					}
-						
-				}
 		        
-		 	}
+		 		}
 		
 		JLabel lblThereWereSome = new JLabel("There were some missing mods. Please refer to the log.");
 		lblThereWereSome.setHorizontalAlignment(SwingConstants.CENTER);

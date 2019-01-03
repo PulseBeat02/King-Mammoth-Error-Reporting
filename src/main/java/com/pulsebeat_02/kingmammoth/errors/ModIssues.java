@@ -8,8 +8,6 @@ import java.io.InputStreamReader;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
 import com.pulsebeat_02.kingmammoth.errors.windows.CrashErrorMain;
 import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.DuplicateMods;
@@ -21,7 +19,8 @@ import net.minecraftforge.fml.common.EnhancedRuntimeException;
 import net.minecraftforge.fml.common.LoaderExceptionModCrash;
 import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.MultipleModsErrored;
-import net.minecraftforge.gradle.GradleStartCommon;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
 
 // Global Variables
 
@@ -35,11 +34,10 @@ public class ModIssues {
 	
 			try {
 				
-				String launch [] = {"launch"};
-		
-				// GradleStartCommon.main("launch");
-				
-				PlaySound();
+				while(FMLPreInitializationEvent event) {
+					
+					
+				}
 				
 			}
 

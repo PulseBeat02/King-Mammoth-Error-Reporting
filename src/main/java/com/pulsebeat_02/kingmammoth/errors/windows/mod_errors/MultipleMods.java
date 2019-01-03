@@ -1,5 +1,6 @@
 package com.pulsebeat_02.kingmammoth.errors.windows.mod_errors;
 
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -26,16 +27,27 @@ public class MultipleMods extends ModIssues {
 	 */
 	
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
+			
 			public void run() {
+				
 				try {
+					
 					MultipleMods window = new MultipleMods();
+					
 					window.frmError.setVisible(true);
+					
 				} catch (Exception e) {
+					
 					e.printStackTrace();
+					
 				}
+				
 			}
+			
 		});
+		
 	}
 
 	/**
@@ -100,33 +112,31 @@ public class MultipleMods extends ModIssues {
 		frmError.getContentPane().add(btnNewButton);
 		
 		if (btnNewButton.getModel().isPressed()) {
-			
-			{
-				
-				try {
-			
 			 
-			 String path = "../../../resources/batch_files/close_process.bat";
-			 Runtime rn = Runtime.getRuntime();
-			 Process pr = rn.exec(path);
+			 if (Desktop.isDesktopSupported()) {
+				 
+				 String path = "../../../resources/batch_files/close_process.bat";
+				 Runtime rn = Runtime.getRuntime();
+				 Process pr = rn.exec(path);
 			 
-				} catch (Exception e) {
+			 }
+			 
+			 else {
 					
-					 ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
-					 Process p = pb.start();
-					 BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-					 String line = null;
-					 while ((line = reader.readLine()) != null) {
+				 	ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
+				 	Process p = pb.start();
+				 	BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				 	String line = null;
+				 	
+				 	while ((line = reader.readLine()) != null) {
 						 
 					    System.out.println(line);
 					    
 					 	}
 					
 					}
-						
-				}
 		        
-		 	}
+		 		}
 		
 		JLabel lblDuplicateModsWere = new JLabel("Duplicate mods were found. Please refer to the log.");
 		lblDuplicateModsWere.setFont(new Font("Tahoma", Font.BOLD, 15));
