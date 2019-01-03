@@ -85,20 +85,6 @@ public class ModIssues {
 				}
 
 			}
-		
-			{
-		
-			if (func_71404_a) { // Crashed
-				
-				String dummy [] = {"dummy"};
-				
-				CrashErrorMain.main(dummy); // Catches any other errors
-				
-				PlaySound();
-			
-				}
-			
-			}
 
 		void PlaySound() {
 			

@@ -18,8 +18,12 @@ import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DuplicateMods extends ModIssues {
+	
+	boolean isLinuxMac = false;
 
 	private JFrame frmError;
 
@@ -108,7 +112,7 @@ public class DuplicateMods extends ModIssues {
 		frmError.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Abort");
-		btnNewButton.setBounds(20, 208, 146, 35);
+		btnNewButton.setBounds(10, 215, 146, 35);
 		frmError.getContentPane().add(btnNewButton);
 		
 		if (btnNewButton.getModel().isPressed()) {
@@ -118,7 +122,7 @@ public class DuplicateMods extends ModIssues {
 		 }
 		
 		JButton btnIgnore = new JButton("Ignore");
-		btnIgnore.setBounds(267, 208, 146, 35);
+		btnIgnore.setBounds(278, 215, 146, 35);
 		frmError.getContentPane().add(btnIgnore);
 		
 		if (btnNewButton.getModel().isPressed()) {
@@ -132,6 +136,8 @@ public class DuplicateMods extends ModIssues {
 			 }
 			 
 			 else {
+				 
+				 	isLinuxMac = false;
 					
 				 	ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
 				 	Process p = pb.start();
@@ -160,10 +166,17 @@ public class DuplicateMods extends ModIssues {
 		lblPleaseReferTo.setBounds(0, 61, 434, 29);
 		frmError.getContentPane().add(lblPleaseReferTo);
 		
+		JButton btnOpenError = new JButton("Open Crash");
+		btnOpenError.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnOpenError.setBounds(166, 215, 99, 35);
+		frmError.getContentPane().add(btnOpenError);
+		
 		String dummy [] = {"dummy"};
 		
 		KMDiagnosis.main(dummy);
 		
 	}
-	
 }

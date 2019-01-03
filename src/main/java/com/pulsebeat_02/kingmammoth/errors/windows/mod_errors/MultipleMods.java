@@ -20,6 +20,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 
 public class MultipleMods extends ModIssues {
+	
+	boolean isLinuxMac = false;
 
 	private JFrame frmError;
 
@@ -109,7 +111,7 @@ public class MultipleMods extends ModIssues {
 		frmError.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Abort");
-		btnNewButton.setBounds(20, 208, 146, 35);
+		btnNewButton.setBounds(10, 215, 146, 35);
 		frmError.getContentPane().add(btnNewButton);
 		
 		if (btnNewButton.getModel().isPressed()) {
@@ -123,6 +125,8 @@ public class MultipleMods extends ModIssues {
 			 }
 			 
 			 else {
+				 
+				 	isLinuxMac = false;
 					
 				 	ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
 				 	Process p = pb.start();
@@ -146,8 +150,12 @@ public class MultipleMods extends ModIssues {
 		frmError.getContentPane().add(lblDuplicateModsWere);
 		
 		JButton btnIgnore = new JButton("Ignore");
-		btnIgnore.setBounds(278, 208, 146, 35);
+		btnIgnore.setBounds(275, 215, 146, 35);
 		frmError.getContentPane().add(btnIgnore);
+		
+		JButton btnOpenCrash = new JButton("Open Crash");
+		btnOpenCrash.setBounds(166, 215, 99, 35);
+		frmError.getContentPane().add(btnOpenCrash);
 		
 		if (btnIgnore.getModel().isPressed()) {
 			 

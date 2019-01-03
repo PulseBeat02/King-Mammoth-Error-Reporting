@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MissingMods extends ModIssues {
+	
+	boolean isLinuxMac = false;
 
 	private JFrame frmError;
 
@@ -106,7 +108,7 @@ public class MissingMods extends ModIssues {
 		frmError.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Abort");
-		btnNewButton.setBounds(20, 208, 146, 35);
+		btnNewButton.setBounds(10, 215, 146, 35);
 		frmError.getContentPane().add(btnNewButton);
 		
 		if (btnNewButton.getModel().isPressed()) {
@@ -116,7 +118,7 @@ public class MissingMods extends ModIssues {
 		 }
 		
 		JButton btnIgnore = new JButton("Ignore");
-		btnIgnore.setBounds(267, 208, 146, 35);
+		btnIgnore.setBounds(275, 215, 146, 35);
 		frmError.getContentPane().add(btnIgnore);
 		
 		if (btnNewButton.getModel().isPressed()) {
@@ -130,6 +132,8 @@ public class MissingMods extends ModIssues {
 			 }
 			 
 			 else {
+				 
+				 	isLinuxMac = false;
 					
 				 	ProcessBuilder pb = new ProcessBuilder("../../../resources/sh_files/close_process.sh", "myArg1", "myArg2");
 				 	Process p = pb.start();
@@ -151,6 +155,10 @@ public class MissingMods extends ModIssues {
 		lblThereWereSome.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblThereWereSome.setBounds(0, 46, 434, 25);
 		frmError.getContentPane().add(lblThereWereSome);
+		
+		JButton btnOpenCrash = new JButton("Open Crash");
+		btnOpenCrash.setBounds(166, 215, 99, 35);
+		frmError.getContentPane().add(btnOpenCrash);
 		
 		String dummy [] = {"dummy"};
 		
