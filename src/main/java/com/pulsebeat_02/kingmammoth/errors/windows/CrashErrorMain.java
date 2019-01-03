@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
+import com.pulsebeat_02.kingmammoth.errors.windows.diagnosis.KMDiagnosis;
+import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.DuplicateMods;
 
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -158,6 +160,10 @@ public class CrashErrorMain extends ModIssues{
 				}
 		        
 		 	}
+		
+			String dummy [] = {"dummy"};
+		
+			KMDiagnosis.main(dummy);
 		
 		}
 

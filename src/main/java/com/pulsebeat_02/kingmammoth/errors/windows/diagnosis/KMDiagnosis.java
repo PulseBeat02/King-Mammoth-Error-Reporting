@@ -66,17 +66,19 @@ public class KMDiagnosis {
 
 	/**
 	 * Create the application.
+	 * @throws IOException 
 	 */
 	
-	public KMDiagnosis() {
+	public KMDiagnosis() throws IOException {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @throws IOException 
 	 */
 	
-	private void initialize() {
+	private void initialize() throws IOException {
 		frmDiagnosis = new JFrame();
 		frmDiagnosis.setTitle("Diagnosis");
 		frmDiagnosis.setBounds(100, 100, 450, 340);
@@ -191,8 +193,20 @@ public class KMDiagnosis {
 		frmDiagnosis.getContentPane().add(lblAttachTheCrash);
 		
 		JButton btnFileExplorer = new JButton("File Explorer");
-		btnFileExplorer.setBounds(30, 183, 145, 23);
+		btnFileExplorer.setBounds(21, 189, 145, 23);
 		frmDiagnosis.getContentPane().add(btnFileExplorer);
+		
+		JButton btnOurWebsite = new JButton("Our Website:");
+		btnOurWebsite.setBounds(164, 255, 114, 35);
+		frmDiagnosis.getContentPane().add(btnOurWebsite);
+		
+		if (btnOurWebsite.getModel().isPressed()) {
+			
+			String url = "https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/mod-packs/2923746-king-mammoth-worlds-largest-500-crazy-modded";			
+			File htmlFile = new File(url);
+			Desktop.getDesktop().browse(htmlFile.toURI());
+			
+		}
 		
 		if (btnFileExplorer.getModel().isPressed()) {
 		

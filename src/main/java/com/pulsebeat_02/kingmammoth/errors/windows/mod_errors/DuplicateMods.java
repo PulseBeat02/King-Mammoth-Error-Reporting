@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import javax.swing.SwingConstants;
 
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
+import com.pulsebeat_02.kingmammoth.errors.windows.diagnosis.KMDiagnosis;
 
 import java.awt.Font;
 import javax.swing.JButton;
@@ -158,6 +159,10 @@ public class DuplicateMods extends ModIssues {
 		lblPleaseReferTo.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblPleaseReferTo.setBounds(0, 61, 434, 29);
 		frmError.getContentPane().add(lblPleaseReferTo);
+		
+		String dummy [] = {"dummy"};
+		
+		KMDiagnosis.main(dummy);
 		
 	}
 	

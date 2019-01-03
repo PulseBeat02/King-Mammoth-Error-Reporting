@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
+import com.pulsebeat_02.kingmammoth.errors.windows.diagnosis.KMDiagnosis;
 
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -150,6 +151,10 @@ public class MissingMods extends ModIssues {
 		lblThereWereSome.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblThereWereSome.setBounds(0, 46, 434, 25);
 		frmError.getContentPane().add(lblThereWereSome);
+		
+		String dummy [] = {"dummy"};
+		
+		KMDiagnosis.main(dummy);
 		
 	}
 

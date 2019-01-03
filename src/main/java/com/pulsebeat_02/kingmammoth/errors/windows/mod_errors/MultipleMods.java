@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
+import com.pulsebeat_02.kingmammoth.errors.windows.diagnosis.KMDiagnosis;
 
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -153,6 +154,10 @@ public class MultipleMods extends ModIssues {
 			 System.exit(0);
 		        
 			}
+		
+			String dummy [] = {"dummy"};
+		
+			KMDiagnosis.main(dummy);
 		
 		}
 	

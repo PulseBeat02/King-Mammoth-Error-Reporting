@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import javax.swing.SwingConstants;
 
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
+import com.pulsebeat_02.kingmammoth.errors.windows.diagnosis.KMDiagnosis;
 
 import java.awt.Font;
 import javax.swing.JButton;
@@ -159,6 +160,10 @@ public class ModErrorMain extends ModIssues {
 					}
 		        
 				}
+		
+				String dummy [] = {"dummy"};
+		
+				KMDiagnosis.main(dummy);
 		
 			}
 	
