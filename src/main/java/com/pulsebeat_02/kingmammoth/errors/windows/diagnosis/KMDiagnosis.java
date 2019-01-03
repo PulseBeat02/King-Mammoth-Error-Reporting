@@ -5,15 +5,31 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import akka.io.Tcp.Message;
+import net.minecraft.util.Session;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Desktop;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.PasswordAuthentication;
+import java.util.Properties;
 import java.awt.event.ActionEvent;
 
 public class KMDiagnosis {
@@ -86,6 +102,59 @@ public class KMDiagnosis {
 		frmDiagnosis.getContentPane().add(txtEmail);
 		txtEmail.setColumns(10);
 		String email = txtEmail.getText();
+
+		/*
+		
+		 final String username = "your.mail.id@gmail.com";
+		 final String password = "your.password";
+
+		    Properties props = new Properties();
+		    props.put("mail.smtp.auth", true);
+		    props.put("mail.smtp.starttls.enable", true);
+		    props.put("mail.smtp.host", "smtp.gmail.com");
+		    props.put("mail.smtp.port", "587");
+
+		    javax.mail.Session session = Session.getInstance(props,
+		            new javax.mail.Authenticator() {
+		                protected PasswordAuthentication getPasswordAuthentication() {
+		                    return new PasswordAuthentication(username, password);
+		                }
+		            });
+
+		    try {
+
+		        Message message = (Message) new MimeMessage(session);
+		        ((MimeMessage) message).setFrom(new InternetAddress("from.mail.id@gmail.com"));
+		        message.setRecipients(Message.RecipientType.TO,
+		                InternetAddress.parse("to.mail.id@gmail.com"));
+		        ((MimeMessage) message).setSubject("Testing Subject");
+		        ((JLabel) message).setText("PFA");
+
+		        MimeBodyPart messageBodyPart = new MimeBodyPart();
+
+		        Multipart multipart = new MimeMultipart();
+
+		        messageBodyPart = new MimeBodyPart();
+		        String file = "path of file to be attached";
+		        String fileName = "attachmentName";
+		        DataSource source = new FileDataSource(file);
+		        messageBodyPart.setDataHandler(new DataHandler(source));
+		        messageBodyPart.setFileName(fileName);
+		        multipart.addBodyPart(messageBodyPart);
+
+		        ((MimeBodyPart) message).setContent(multipart);
+
+		        System.out.println("Sending");
+
+		        Transport.send((javax.mail.Message) message);
+
+		        System.out.println("Done");
+
+		    } catch (MessagingException e) {
+		        e.printStackTrace();
+		    }
+		
+		*/
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setBounds(20, 72, 46, 14);
