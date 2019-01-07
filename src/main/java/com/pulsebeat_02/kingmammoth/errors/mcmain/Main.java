@@ -1,4 +1,4 @@
-*/
+/*
 	
 package com.pulsebeat_02.kingmammoth.errors.mcmain;
 
@@ -141,4 +141,4 @@ public class Main
   
 }
 
-/*
+*/
