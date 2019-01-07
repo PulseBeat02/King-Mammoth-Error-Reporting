@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.logging.Logger;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -13,14 +14,14 @@ import com.pulsebeat_02.kingmammoth.errors.windows.CrashErrorMain;
 import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.DuplicateMods;
 import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.MissingMods;
 import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.MultipleMods;
+import com.pulsebeat_02.kingmammoth.errors.windows.logging.ProgramLogging;
 
+import net.minecraft.client.main.Main;
 import net.minecraftforge.fml.common.DuplicateModsFoundException;
 import net.minecraftforge.fml.common.EnhancedRuntimeException;
 import net.minecraftforge.fml.common.LoaderExceptionModCrash;
 import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.MultipleModsErrored;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
 
 // Global Variables
 
@@ -29,18 +30,17 @@ public class ModIssues {
 		String path = "../resources/wav/Windows Error.wav";
 
 		File Error = new File (path);
+		
+		public ProgramLogging log = new ProgramLogging();    
 	
 		{
 	
-			try {
+			try { 
+					
+				String[] args = new String[] {"dummy"};
 				
-				while(FMLPreInitializationEvent event) {
-					
-
-					
-					
-				}
-				
+				ScanMainRunning.main(args);
+						
 			}
 
 		
@@ -51,6 +51,8 @@ public class ModIssues {
 					DuplicateMods.main(dummy);
 					
 					PlaySound();
+					
+					// logger.info("");
 					
 				}
 		
@@ -82,9 +84,15 @@ public class ModIssues {
 					
 					PlaySound();
 				
-				}
-
+				} 
+			
+			catch (Exception e) {
+					
+				e.printStackTrace();
+				
 			}
+
+		}
 
 		void PlaySound() {
 			
@@ -107,5 +115,5 @@ public class ModIssues {
 			}
 								
 		}
-			
+    
 	}

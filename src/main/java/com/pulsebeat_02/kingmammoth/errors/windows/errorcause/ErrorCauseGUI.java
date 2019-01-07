@@ -22,6 +22,10 @@ import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.commons.io.comparator.LastModifiedFileComparator;
 
 import java.awt.Color;
+import java.awt.Scrollbar;
+import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 public class ErrorCauseGUI {
 
@@ -73,14 +77,20 @@ public class ErrorCauseGUI {
 		
 		frmErrorCause = new JFrame();
 		frmErrorCause.setTitle("Error Cause");
-		frmErrorCause.setBounds(100, 100, 450, 300);
+		frmErrorCause.setBounds(100, 100, 600, 475);
 		frmErrorCause.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmErrorCause.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBounds(10, 11, 414, 239);
+		panel.setBounds(10, 11, 564, 414);
 		frmErrorCause.getContentPane().add(panel);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		panel.add(lblNewLabel);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel.add(scrollPane);
 		
 		{
 			
@@ -88,18 +98,6 @@ public class ErrorCauseGUI {
 		
 				String crash_report = readFileAsString(FindLatestGenFile().getName()); 
 				System.out.println(crash_report); 
-				
-				
-				/*
-
-				int time = crash_report.indexOf("Time:"); // Finds the first "Time:" keyword in crash report
-				int A = crash_report.indexOf("detailed"); // Finds the first "detailed" keyword in the crash report
-				
-				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-				clipboard.setContents(time, A);
-				
-				*/
-
 		
 			} catch (FileNotFoundException e) {
 				
@@ -112,6 +110,8 @@ public class ErrorCauseGUI {
 		
 
 		// Scan File Starting With Word "Time" --> Letter "A".
+		
+		// Do this later. Use subset methods to make this class.
 	  
 	}
 
@@ -144,6 +144,5 @@ public class ErrorCauseGUI {
 	    return data; 
 	    
 	  	} 
-	
 	}
 

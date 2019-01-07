@@ -24,6 +24,8 @@ public class King_Mammoth {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		
+		String dummy = "dummy";
+		main.ModIssues(dummy);
 		
 	}
 	
