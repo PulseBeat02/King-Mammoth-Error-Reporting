@@ -25,4 +25,4 @@ We have not yet released anything, however, please wait. We have just started th
 
 # Other Infornmation
 
-Thats all for now. I will be hoping to add more to this text file. Thank you for reading this.
+Thats all for now. I will be hoping to add more to this text file. Thank you for reading this before accessing any project files.
