@@ -25,7 +25,7 @@ import net.minecraftforge.fml.common.MultipleModsErrored;
 
 // Global Variables
 
-public class ModIssues {
+public class ModIssues extends ProgramLogging {
 	
 		String path = "../resources/wav/Windows Error.wav";
 
@@ -50,6 +50,8 @@ public class ModIssues {
 			
 					DuplicateMods.main(dummy);
 					
+					logger.warning("Duplicate Mods Have Been Found. ");
+					
 					PlaySound();
 					
 					// logger.info("");
@@ -72,6 +74,8 @@ public class ModIssues {
 			
 					CrashErrorMain.main(dummy);
 					
+					logger.warning("");
+					
 					PlaySound();
 			
 				}
@@ -83,6 +87,8 @@ public class ModIssues {
 					CrashErrorMain.main(dummy); // Catches any other errors
 					
 					PlaySound();
+					
+					logger.warning("An error has appeared and the modpack cannot seem to find it. Please look at the forge log to find the issue.");
 				
 				} 
 			

@@ -10,7 +10,7 @@ public class ProgramLogging {
 	
 	String path = "../../../../logs/KM.log"; 
 	
-	Logger logger = Logger.getLogger("KMLogger"); 
+	protected Logger logger = Logger.getLogger("KMLogger"); 
 	
     FileHandler fh;
 	

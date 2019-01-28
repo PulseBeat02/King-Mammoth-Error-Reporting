@@ -6,16 +6,20 @@ import java.io.InputStreamReader;
 
 import com.pulsebeat_02.kingmammoth.errors.windows.CrashErrorMain;
 import com.pulsebeat_02.kingmammoth.errors.windows.crash.VersionCrash;
+import com.pulsebeat_02.kingmammoth.errors.windows.logging.ProgramLogging;
 import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.MissingMods;
 import com.pulsebeat_02.kingmammoth.errors.ModIssues;
 
 import net.minecraftforge.fml.common.LoaderException;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.WrongMinecraftVersionException;
 import net.minecraftforge.gradle.GradleStartCommon;
 
-public class ModpackCrash {
+public class ModpackCrash extends ProgramLogging {
 	
-		public ModIssues myMI = new ModIssues();
+	public ModIssues myMI = new ModIssues();
+		
+		public ProgramLogging log = new ProgramLogging();  
 	
 		{
 		
@@ -32,6 +36,11 @@ public class ModpackCrash {
 			VersionCrash.main(dummy); // Catches Error Statements
 			
 			myMI.PlaySound();
+			
+			logger.warning("The following mods have the wrong Minecraft Versions:" + mod.getModId);
+			logger.warning("Location: " + mod.getSource().toString());
+			logger.warning("Expected: " + mod.acceptableMinecraftVersionRange().toString());
+			logger.warning("Current: " + mcVersion);
 			
 			}
 
