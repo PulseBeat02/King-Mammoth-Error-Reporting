@@ -1,3 +1,5 @@
+/*
+
 package com.pulsebeat_02.kingmammoth.errors.mcmain;
 
 import com.google.gson.GsonBuilder;
@@ -138,3 +140,5 @@ public class Main
   }
   
 }
+
+*/

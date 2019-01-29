@@ -19,6 +19,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.comparator.LastModifiedFileComparator;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 
+import com.pulsebeat_02.kingmammoth.errors.windows.logging.ProgramLogging;
+
 import org.apache.commons.io.comparator.LastModifiedFileComparator;
 
 import java.awt.Color;
@@ -27,7 +29,9 @@ import java.awt.Panel;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-public class ErrorCauseGUI {
+public class ErrorCauseGUI extends ProgramLogging {
+	
+	public ProgramLogging log = new ProgramLogging();    
 
 	private JFrame frmErrorCause;
 
@@ -74,6 +78,41 @@ public class ErrorCauseGUI {
 	
 	private void initialize() throws Exception {
 		
+		String errorString = "";
+		
+		{
+			int[] startend = new int[2];
+			
+			
+			
+			try { // If there were no crash-reports in the folder, we would need to add a try/catch statement
+		
+				String crash_report = readFileAsString(FindLatestGenFile().getName()); 
+				
+				System.out.println(crash_report); 
+				
+				startend = secscanner(crash_report);
+				
+				errorString = String.valueOf(crash_report.toCharArray(), startend[0], startend[1]);
+				
+				if (errorString != null) {
+						
+					errorString = "Null or Empty. Please contact mod owner.";	
+					
+				}
+				
+		
+			} catch (FileNotFoundException e) {
+				
+				logger.warning("No Crash Report Generated."); 
+				
+			}
+			
+			// Scan File Starting With Word "Time" --> Letter "A".
+			
+			// Do this later. Use subset methods to make this class.
+		
+		}
 		
 		frmErrorCause = new JFrame();
 		frmErrorCause.setTitle("Error Cause");
@@ -86,33 +125,12 @@ public class ErrorCauseGUI {
 		panel.setBounds(10, 11, 564, 414);
 		frmErrorCause.getContentPane().add(panel);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel(String.valueOf(errorString)); // Inputs String into Panel
 		panel.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel.add(scrollPane);
-		
-		{
-			
-			try { // If there were no crash-reports in the folder, we would need to add a try/catch statement
-		
-				String crash_report = readFileAsString(FindLatestGenFile().getName()); 
-				System.out.println(crash_report); 
-		
-			} catch (FileNotFoundException e) {
-				
-				// Return no crash reports 
-				
-			}
-		
-		}
-		
-		
 
-		// Scan File Starting With Word "Time" --> Letter "A".
-		
-		// Do this later. Use subset methods to make this class.
-	  
 	}
 
 	public File FindLatestGenFile() { // Method used to find the latest generate file in a folder
@@ -144,5 +162,32 @@ public class ErrorCauseGUI {
 	    return data; 
 	    
 	  	} 
+
+	int[] secscanner(String crash_report) {
+		
+		int Start;
+		int End;
+		
+		Scanner scanner = new Scanner(crash_report);
+			
+		Start = crash_report.indexOf("Time");
+				
+		End = crash_report.indexOf("A detailed") - 10;
+			
+		scanner.close();
+				
+		return new int[] {Start, End};
+		
 	}
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 

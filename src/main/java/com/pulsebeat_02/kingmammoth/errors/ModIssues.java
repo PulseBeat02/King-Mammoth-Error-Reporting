@@ -10,6 +10,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+import com.pulsebeat_02.kingmammoth.King_Mammoth;
 import com.pulsebeat_02.kingmammoth.errors.windows.CrashErrorMain;
 import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.DuplicateMods;
 import com.pulsebeat_02.kingmammoth.errors.windows.mod_errors.MissingMods;
@@ -27,28 +28,25 @@ import net.minecraftforge.fml.common.MultipleModsErrored;
 
 public class ModIssues extends ProgramLogging {
 	
+		King_Mammoth main = new King_Mammoth();
+	
 		String path = "../resources/wav/Windows Error.wav";
 
-		File Error = new File (path);
-		
-		public ProgramLogging log = new ProgramLogging();    
+		File Error = new File(path);
+		  
 	
 		{
 	
 			try { 
-					
-				String[] args = new String[] {"dummy"};
 				
-				ScanMainRunning.main(args);
+				ScanMainRunning.main(null);
 						
 			}
 
 		
 			catch (DuplicateModsFoundException VariableDeclaratorId) {
 			
-					String dummy [] = {"dummy"};
-			
-					DuplicateMods.main(dummy);
+					DuplicateMods.main(null);
 					
 					logger.warning("Duplicate Mods Have Been Found. ");
 					
@@ -60,9 +58,7 @@ public class ModIssues extends ProgramLogging {
 		
 			catch (MultipleModsErrored VariableDeclaratorId) {
 			
-					String dummy [] = {"dummy"};
-			
-					MultipleMods.main(dummy);
+					MultipleMods.main(null);
 					
 					PlaySound();
 			
@@ -70,9 +66,7 @@ public class ModIssues extends ProgramLogging {
 		
 			catch (LoaderExceptionModCrash VariableDeclaratorId) {
 			
-					String dummy [] = {"dummy"};
-			
-					CrashErrorMain.main(dummy);
+					CrashErrorMain.main(null);
 					
 					logger.warning("");
 					
@@ -81,10 +75,8 @@ public class ModIssues extends ProgramLogging {
 				}
 			
 			catch (EnhancedRuntimeException VariableDeclaratorId) {
-			
-					String dummy [] = {"dummy"};
 				
-					CrashErrorMain.main(dummy); // Catches any other errors
+					CrashErrorMain.main(null); // Catches any other errors
 					
 					PlaySound();
 					

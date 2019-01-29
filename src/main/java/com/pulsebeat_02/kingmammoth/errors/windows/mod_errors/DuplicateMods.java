@@ -174,9 +174,7 @@ public class DuplicateMods extends ModIssues {
 		btnOpenError.setBounds(166, 215, 99, 35);
 		frmError.getContentPane().add(btnOpenError);
 		
-		String dummy [] = {"dummy"};
-		
-		KMDiagnosis.main(dummy);
+		KMDiagnosis.main(null);
 		
 	}
 }
