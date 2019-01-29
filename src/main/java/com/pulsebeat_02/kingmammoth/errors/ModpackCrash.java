@@ -31,16 +31,14 @@ public class ModpackCrash extends ProgramLogging {
 		
 		catch (WrongMinecraftVersionException VariableDeclaratorId) {
 			
-			String dummy [] = {"dummy"}; // Passes dummy array because the code in the class being ran doesn't use the inputed String array
-
-			VersionCrash.main(dummy); // Catches Error Statements
+			VersionCrash.main(null); // Catches Error Statements
 			
 			myMI.PlaySound();
 			
-			logger.warning("The following mods have the wrong Minecraft Versions:" + mod.getModId);
-			logger.warning("Location: " + mod.getSource().toString());
-			logger.warning("Expected: " + mod.acceptableMinecraftVersionRange().toString());
-			logger.warning("Current: " + mcVersion);
+			//logger.warning("The following mods have the wrong Minecraft Versions:" + mod.getModId);
+			//logger.warning("Location: " + mod.getSource().toString());
+			//logger.warning("Expected: " + mod.acceptableMinecraftVersionRange().toString());
+			//logger.warning("Current: " + mcVersion);
 			
 			}
 

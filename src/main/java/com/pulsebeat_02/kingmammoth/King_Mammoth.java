@@ -1,5 +1,6 @@
 package com.pulsebeat_02.kingmammoth;
 
+import com.pulsebeat_02.kingmammoth.errors.ModIssues;
 import com.pulsebeat_02.kingmammoth.proxy.CommonProxy;
 
 import net.minecraftforge.fml.common.Mod;
@@ -25,7 +26,9 @@ public class King_Mammoth {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		String dummy = "dummy";
-		main.ModIssues(dummy);
+		
+		System.out.println(dummy);
+		//main.ModIssues(null);
 		
 	}
 	
