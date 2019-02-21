@@ -11,5 +11,8 @@ public class ClientProxy extends CommonProxy {
 		ModelLoader.setCustomModelResourceLocation(item,  meta, new ModelResourceLocation(item.getRegistryName(), id));
 		
 	}
+	
+	GameRegistry.registerTileEntity(TileEntityKingMammoth.class, "tileKingMammoth");
+    ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKingMammoth.class, new RenderTileEntityKingMammoth());
 
 }
