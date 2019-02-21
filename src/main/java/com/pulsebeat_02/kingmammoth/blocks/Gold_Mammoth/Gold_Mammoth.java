@@ -4,7 +4,9 @@ import com.pulsebeat_02.kingmammoth.utils.Reference;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -15,21 +17,16 @@ public class Gold_Mammoth extends BlockContainer{
     	
         super(material);
 
-        this.setBlockName("King Mammoth");
+        this.setUnlocalizedName("King Mammoth");
     }
 
     @Override
-    public boolean renderAsNormalBlock(){
-        return false;
+    public EnumBlockRenderType getRenderType(IBlockState iBlockState){
+    	return EnumBlockRenderType.MODEL;
     }
 
     @Override
-    public int getRenderType(){
-        return -1;
-    }
-
-    @Override
-    public boolean isOpaqueCube(){
+    public boolean isOpaqueCube(IBlockState iBlockState){
         return false;
     }
 

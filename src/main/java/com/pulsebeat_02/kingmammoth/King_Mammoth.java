@@ -18,12 +18,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.ACCEPTED_VERSIONS)
 
 public class King_Mammoth {
-		
-	@Instance
-	public static King_Mammoth instance;
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS) 
 	public static CommonProxy proxy;
+	
+	@Mod.Instance(Reference.MOD_ID)
+	public static King_Mammoth instance;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

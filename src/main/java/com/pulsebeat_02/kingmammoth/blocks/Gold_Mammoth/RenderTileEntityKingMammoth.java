@@ -1,17 +1,23 @@
 package com.pulsebeat_02.kingmammoth.blocks.Gold_Mammoth;
 
+import org.lwjgl.opengl.GL11;
+
+import com.pulsebeat_02.kingmammoth.utils.Reference;
+
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ICustomModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 
 public class RenderTileEntityKingMammoth {
 	
 	ResourceLocation texture;
 	ResourceLocation objModelLocation;
-	IModelCustom model;
+	ICustomModelLoader model; {
 	
-    texture = new ResourceLocation(YourMod.MODID, "models/KingMammothTexture.png");
-    objModelLocation = new ResourceLocation(YourMod.MODID, "models/KingMammothModel.obj");
-    model = AdvancedModelLoader.loadModel(objModelLocation);
+    texture = new ResourceLocation(Reference.MOD_ID, "models/KingMammothTexture.png");
+    objModelLocation = new ResourceLocation(Reference.MOD_ID, "models/KingMammothModel.obj");
+    model = (ICustomModelLoader) ModelLoaderRegistry.getModel(objModelLocation);
     
     @Override
     public void renderTileEntityAt(TileEntity te, double posX, double posY, double posZ, float timeSinceLastTick) {
@@ -25,11 +31,15 @@ public class RenderTileEntityKingMammoth {
 
     GL11.glPushMatrix();
     GL11.glTranslated(posX + 0.5, posY + 0.5, posZ + 0.5);
-    GL11.glScalef(scale, scale, scale);
+    GL11.glScalef(1, 1, 1);
     GL11.glPushMatrix();
-    GL11.glRotatef(rotation, 0F, 1F, 0.5F);
+    GL11.glRotatef(0, 0F, 1F, 0.5F);
     model.renderAll();
     GL11.glPopMatrix();
     GL11.glPopMatrix();
+    
+    
 
+	}
+	
 }
