@@ -1,0 +1,53 @@
+{
+   "type":"crafting_shaped",
+   "pattern":[
+      "#FC",
+      "ANE",
+      "BDG"
+   ],
+   
+   "key":{
+   
+      "#":{
+         "item":"minecraft:dragon_head"
+      },
+	  
+      "F":{
+         "item":"minecraft:firework_rocket"
+      },
+	  
+      "C":{
+         "item":"draconicevolution:awakened_core"
+      },
+	  
+      "A":{
+         "item":"twighlightforest:lamp_of_cinders"
+      },
+	  
+      "N":{
+         "item":"minecraft:nether_star"
+      },
+	  
+      "E":{
+         "item":"GalacticraftCore:item.flag"
+      },
+	  
+      "B":{
+         "item":"twighlightforest:trophy:5"
+      },
+	  
+      "D":{
+         "item":"minecraft:dragon_breath"
+      },
+	  
+      "G":{
+         "item":"?"
+      }
+	  
+   },
+   
+   "result":{
+      "item":"kingmammoth:gold_mammoth",
+      "count":1
+   }
+}

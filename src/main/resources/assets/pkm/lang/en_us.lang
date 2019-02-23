@@ -1,1 +1,9 @@
-item.GoldMammoth.name=Gold King Mammoth
+# Blocks
+
+tile.tutorial:king_mammoth.name=Gold King Mammoth
+
+
+
+# Items
+
+# item.gold_mammoth.name=Gold King Mammoth

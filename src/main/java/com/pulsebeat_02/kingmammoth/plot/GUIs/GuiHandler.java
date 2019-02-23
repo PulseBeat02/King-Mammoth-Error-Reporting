@@ -1,76 +1,50 @@
 package com.pulsebeat_02.kingmammoth.plot.GUIs;
 
-import java.io.IOException;
+import com.pulsebeat_02.kingmammoth.plot.GUIs.introduction.IntroductoryGUI.BlockGuiWindow;
 
-import javax.annotation.Resource;
-import javax.swing.JFileChooser;
-
-import com.pulsebeat_02.kingmammoth.utils.Reference;
-
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import uk.co.caprica.vlcj.player.MediaPlayerFactory;
-import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 
-public class GuiHandler extends GuiScreen {
-	
-	public static final int BLOCK_BREAKER = 0;
-	
-	private static JFileChooser filechooser = new JFileChooser();
-	
-	ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/gui/intro");
-	
-    NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "C:\\Program Files\\VideoLAN\\VLC");
-    Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-    MediaPlayerFactory mpf = new MediaPlayerFactory();
-    emp.setEnableMouseInputHandling(false);
-    emp.setEnableKeyInputHandling(false);
-    
-    String file = "";
-    
-    emp.prepareMedia(file);
-    
-    
-		@Override
-		public void drawScreen (int mouseX, int mouseY, float partialTicks) {
-			
-			super.drawScreen(mouseX, mouseY, partialTicks);
-			
-		}
-		
-		@Override
-		public void initGui() {
-			
-			super.initGui();
-			
-		}
-		
-		@Override
-		protected void actionPerformed(GuiButton button) throws IOException {
-			
-			super.actionPerformed(button);
-			
-		}
-		
-		@Override
-		protected void keyTyped(char typedChar, int keyCode) throws IOException {
-			
-			super.keyTyped(typedChar, keyCode);
-			
-		}
-		
-		@Override
-		public boolean doesGuiPauseGame() {
-			
-			return true;
-			
-		}
+public class GuiHandler implements IGuiHandler {
+    @Override
+    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+        //I don't use any containers in my GUIs (GuiContainer), but if I did, I'd return them here.
+        //You can only get away with what I'm doing here if your GUIs extend GuiScreen and not GuiContainer
+        //Servers get containers - Clients get GUIs
+        return null;
+    }
 
-	
-	
-}
+    @Override
+    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+
+        {
+            switch (ID) {
+                case 0:
+
+                    return new BlockGuiWindow(null);
+                    break;
+
+                case 1:
+
+                    //return new DialogGUI();
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+
+            }
+
+            return null;
+            //It is common Java convention to "break;" a switch case, but because all my cases end in returns, I don't need to
+        } 
+        
+    }
+    
+    
+}﻿﻿
