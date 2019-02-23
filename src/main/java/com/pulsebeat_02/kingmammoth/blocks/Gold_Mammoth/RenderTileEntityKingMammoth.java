@@ -1,5 +1,7 @@
 package com.pulsebeat_02.kingmammoth.blocks.Gold_Mammoth;
 
+import java.io.FileNotFoundException;
+
 import org.lwjgl.opengl.GL11;
 
 import com.pulsebeat_02.kingmammoth.King_Mammoth;
@@ -15,21 +17,27 @@ public class RenderTileEntityKingMammoth extends TileEntitySpecialRenderer {
 	
 	ICustomModelLoader model;
 	ResourceLocation objModelLocation;
+	ResourceLocation texture;
 	
 	private static Gold_Mammoth modelBlock = new Gold_Mammoth();
-	public static ResourceLocation texture = new ResourceLocation(King_Mammoth.MOD_ID, "models/KingMammothModel.obj");
+	
 
 	{
 		
 	try {
 		
+		texture = new ResourceLocation(King_Mammoth.MOD_ID, "models/KingMammothModel.obj");
 	    model = (ICustomModelLoader) ModelLoaderRegistry.getModel(objModelLocation);
 		
-	} catch (Exception e) {
+	} catch (FileNotFoundException e) {
 		
 		e.printStackTrace();
 		
-		}
+			} catch (Exception e) {
+
+				e.printStackTrace();
+		
+			}
 	
 	}
 	
@@ -40,7 +48,7 @@ public class RenderTileEntityKingMammoth extends TileEntitySpecialRenderer {
 	    
 	}
 
-    public void renderTileEntityEconomyAt(TileEntity te, double posX, double posY, double posZ, float timeSinceLastTick) {
+    public void renderTileEntityEconomyAt(TileEntity te, double posX, double posY, double posZ, float timeSinceLastTick) throws Exception {
 
         TileEntityKingMammoth te2 = (TileEntityKingMammoth) te;
         float rotation = te2.rotation + (timeSinceLastTick / 2F);
@@ -51,7 +59,7 @@ public class RenderTileEntityKingMammoth extends TileEntitySpecialRenderer {
         GL11.glScalef(1, 1, 1);
         GL11.glPushMatrix();
         GL11.glRotatef(0, 0F, 1F, 0.5F);
-        model.renderAll();
+        model.loadModel(objModelLocation);
         GL11.glPopMatrix();
         GL11.glPopMatrix();
 

@@ -50,7 +50,7 @@ public class ClientProxy extends CommonProxy {
 
         super.init(event);
 
-        ModBlocks.registerBlocks();
+        //ModBlocks.registerBlocks();
 
     }
 
