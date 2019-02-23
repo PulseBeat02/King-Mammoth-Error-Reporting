@@ -7,7 +7,7 @@ This mod has the goal of hoping to help promote diagnosing bugs, glitches, and p
 # License
 
 This mod shall not be redistributed or modified unless given permission by the author, PulseBeat02.
-You may view these files, however, they are not meant for editing or recopying.
+You may view these files, however, they are not meant for editing or recopying for you to use.
 
 # More Important Information While Reading JAVA Files
 
