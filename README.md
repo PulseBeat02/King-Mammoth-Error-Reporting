@@ -83,6 +83,6 @@ If you have anymore questions, please ask me in the Issues tab.
 
 We have not yet released anything, however, please wait. We have just started this project a couple weeks ago, and it will require many steps towards to solve, including byte code manipulation, the making of batch files and possibly dll files, and many other tough "stuff".
 
-# Other Infornmation
+# Other Information
 
 Thats all for now. I will be hoping to add more to this text file. Thank you for reading this before accessing any project files.
